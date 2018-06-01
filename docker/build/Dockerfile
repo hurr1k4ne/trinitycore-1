@@ -1,7 +1,7 @@
 # MIT License
 # Copyright (c) 2017 Nicola Worthington <nicolaw@tfb.net>
 
-FROM debian:stretch
+FROM hurr1k4ne/baseimage:0.11.0
 LABEL author="Nicola Worthington <nicolaw@tfb.net>"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -30,7 +30,7 @@ RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
     make \
     p7zip-full \
     libboost-all-dev \
-    libssl1.0-dev \
+    libssl1.1-dev \
     libmariadbclient-dev \
     libreadline-dev \
     zlib1g-dev \
