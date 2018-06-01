@@ -1,5 +1,14 @@
 # Dockerised TrinityCore
 
+## The Base of all (relevant) Images are changed to use very slim ubuntu baseimage for docker.
+I changed the baseimage-docker repo to use 18.04 LTS so we can use quite up-to-date libraries.
+
+be sure to clone hurr1k4ne/baseimage branch 18.04 before and run
+
+docker build -t hurr1k4ne/baseimage . 
+
+from inside the repo.
+
 See [GettingStarted.md](GettingStarted.md) for a guide on how to run TrinityCore
 in a fully Dockerised environment.
 
