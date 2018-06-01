@@ -1,8 +1,11 @@
 # MIT License
 # Copyright (c) 2017 Nicola Worthington <nicolaw@tfb.net>
 
-FROM ubuntu:xenial
+FROM hurr1k4ne/baseimage:0.11.0
 LABEL author="Nicola Worthington <nicolaw@tfb.net>"
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
 
 ENV DEBIAN_FRONTEND noninteractive
 
@@ -12,8 +15,8 @@ RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
     git \
     jq \
     netcat \
-    php7.0 \
-    php7.0-mysql \
+    php7.2 \
+    php7.2-mysql \
     php-mbstring \
     php-sqlite3 \
     php-xml \

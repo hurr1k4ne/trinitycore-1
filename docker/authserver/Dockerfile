@@ -1,19 +1,25 @@
 # MIT License
 # Copyright (c) 2017 Nicola Worthington <nicolaw@tfb.net>
 
-FROM debian:stretch
+FROM hurr1k4ne/baseimage:0.11.0
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
 LABEL author="Nicola Worthington <nicolaw@tfb.net>"
+
+CMD ["/sbin/my_init"]
 
 ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
     apt-get -qq -o Dpkg::Use-Pty=0 install -y --no-install-recommends \
-    libboost-filesystem1.62.0 \
-    libboost-iostreams1.62.0 \
-    libboost-program-options1.62.0 \
-    libboost-system1.62.0 \
-    libboost-thread1.62.0 \
-    libboost-regex1.62.0 \
+    libboost-filesystem1.65.1 \
+    libboost-iostreams1.65.1 \
+    libboost-program-options1.65.1 \
+    libboost-system1.65.1 \
+    libboost-thread1.65.1 \
+    libboost-regex1.65.1 \
     libssl1.1 \
     libmariadbclient18 \
     netcat \

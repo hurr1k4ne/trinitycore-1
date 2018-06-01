@@ -5,7 +5,11 @@
 # TODO: This Dockerfile is currently VERY INCOMPLETE!
 #
 
-FROM ubuntu:xenial
+FROM hurr1k4ne/baseimage:0.11.0
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
 LABEL author="Nicola Worthington <nicolaw@tfb.net>"
 
 ENV DEBIAN_FRONTEND noninteractive
@@ -17,8 +21,8 @@ RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
     jq \
     mysql-client \
     netcat \
-    php7.0 \
-    php7.0-mysql \
+    php7.2 \
+    php7.2-mysql \
     php-gd \
     php-mbstring \
     php-xml \
