@@ -30,7 +30,7 @@ RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
     make \
     p7zip-full \
     libboost-all-dev \
-    libssl1.1-dev \
+    libssl-dev \
     libmariadbclient-dev \
     libreadline-dev \
     zlib1g-dev \
