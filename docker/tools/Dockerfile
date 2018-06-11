@@ -23,13 +23,13 @@ RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
     bc \
     #blip \
     curl \
-    libboost-filesystem1.65.1 \
-    libboost-iostreams1.65.1 \
-    libboost-program-options1.65.1 \
-    libboost-system1.65.1 \
-    libboost-thread1.65.1 \
-    libboost-regex1.65.1 \
-    libssl1.1 \
+    libboost-filesystem1.62.0 \
+    libboost-iostreams1.62.0 \
+    libboost-program-options1.62.0 \
+    libboost-system1.62.0 \
+    libboost-thread1.62.0 \
+    libboost-regex1.62.0 \
+    libssl1.0.2 \
     libmariadbclient18 \
  < /dev/null > /dev/null \
  && rm -rf /var/lib/apt/lists/*

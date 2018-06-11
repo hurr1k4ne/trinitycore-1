@@ -4,6 +4,9 @@
 FROM hurr1k4ne/baseimage:0.11.0
 LABEL author="Nicola Worthington <nicolaw@tfb.net>"
 
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
 ENV DEBIAN_FRONTEND noninteractive
 
 #RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
@@ -16,7 +19,8 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # https://github.com/TrinityCore/TrinityCore/blob/master/.travis.yml
 # https://trinitycore.atlassian.net/wiki/display/tc/Requirements
-RUN apt-get -qq -o Dpkg::Use-Pty=0 update && \
+RUN add-apt-repository universe && \
+    apt-get -qq -o Dpkg::Use-Pty=0 update && \
     apt-get -qq -o Dpkg::Use-Pty=0 install -y \
     bc \
     #blip \
