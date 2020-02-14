@@ -1,0 +1,13 @@
+FROM phusion/baseimage:0.10.1
+
+# Use baseimage-docker's init system.
+CMD ["/sbin/my_init"]
+
+RUN apt -y update && apt -y install mydumper
+
+CMD ["/usr/bin/mydumper","--host=mysql","--password=okgreat","--outputdir='/opt/mydumper/$(date +%Y-%m-%d_%H-%M-%S)/","--rows=50000","--compress","--threads=2","--compress-protocol"]
+
+#clean up APT when done.
+RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+
+

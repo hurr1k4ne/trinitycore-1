@@ -8,6 +8,7 @@ version: "3"
 services:
   mariadb:
     image: "mariadb:latest"
+    command: --skip-grant-tables
     environment:
       MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD:-okgreat}"
       MYSQL_USER: "${DB_USERNAME:-trinity}"
@@ -94,3 +95,11 @@ services:
 #      - mariadb:mysql
 #    ports:
 #      - "8083:80"
+  backup:
+     build: backup
+     depends_on:
+       - mariadb
+     links:
+       - mariadb:mysql
+     volumes:
+      - ../artifacts/backup:/opt/mydumper
